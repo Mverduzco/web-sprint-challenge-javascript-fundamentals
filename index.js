@@ -56,10 +56,15 @@ const zooAnimals = [
   Use animalNames to populate and return the displayNames array with only the animal name and scientific name of each animal. 
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
+  const namesA = [];
 
   function animalNames(){
-
+    zooAnimals.forEach(function(item){
+      return namesA.push(item.animal_name());
+      
+    });
   }
+  console.log(animalNames)
 
     
 
@@ -76,7 +81,7 @@ const zooAnimals = [
     });
     return names;
   }
-  console.log(lowerCaseNames(zooAnimals))
+  // console.log(lowerCaseNames(zooAnimals))
 
 
 
@@ -93,7 +98,7 @@ const zooAnimals = [
     return newArray;
     /*Your Code Here*/
   }
-  console.log(lowPopulationAnimals(zooAnimals));
+  // console.log(lowPopulationAnimals(zooAnimals));
 
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
@@ -109,7 +114,7 @@ const zooAnimals = [
     return singleValue;
     
   }
-  console.log(USApop(zooAnimals));
+  // console.log(USApop(zooAnimals));
 
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
@@ -150,17 +155,19 @@ function greeting(first, last){
   
   // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
   // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-  console.log(consume(2, 2, add)); // 4
-  console.log(consume(10, 16, multiply)); // 160
-  console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
+  // console.log(consume(2, 2, add)); // 4
+  // console.log(consume(10, 16, multiply)); // 160
+  // console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 // 🐴🐴🐴 Topic 3: Prototypes 🐴🐴🐴 //
 //🐴🐴🐴 Task: You are to build a cuboid maker that can return values for a cuboid's volume or surface area. Cuboids are similar to cubes but do not have even sides. Follow the steps in order to accomplish this challenge. 🐴🐴🐴
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker(/*Your Code Here */){
-  /*Your Code Here */
+function CuboidMaker(attrs){
+  this.length = attrs.length;
+  this.width = attrs.width;
+  this.height = attrs.height;
 }
 
 
@@ -168,7 +175,9 @@ function CuboidMaker(/*Your Code Here */){
   Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
   Formula for cuboid volume: length * width * height   */
 
-
+CuboidMaker.prototype.volume = function(){
+  return this.length * this.width * this.height;
+}
 
 
 
